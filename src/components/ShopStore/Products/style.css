@@ -21,6 +21,7 @@
 .ProductArea{
     display: flex;
     flex-wrap: wrap;
+    width: 80%;
 }
 .Product{
     width: 280px;
@@ -28,10 +29,6 @@
     border-radius: 5px;
     text-align: center;
     margin: 0 10px 10px 0;
-}
-.Product > .Album-covers{
-    width: 300px;
-    height: 300px;
 }
 .Product > .ProductImage{
     width: 80%;
@@ -57,7 +54,7 @@
     flex: 8;
 }
 .SideMenu{
-    border: 1px solid #cecece;
+    border: none;
     margin-right: 10px;
     box-sizing: border-box;
 }
@@ -98,6 +95,29 @@
     display: flex;
 
 }
+.Drake{
+    width: 200px;
+    height: 250px;
+    margin-right: 50px;
+}
+.Albumimg{
+    width: 200px;
+    height: 200px;
+    /* border: 2px solid black; */
+    border: none;
+}
+
+.Katy{
+    width: 200px;
+    height: 250px;
+    margin-right: 50px;
+}
+
+
+.Album-covers{
+    display: flex;
+    margin-left: 20px;
+}
 
 .Filter > select{
     border: none;
@@ -129,5 +149,9 @@
     }
     .FilterSecond {
         margin-right: 2px;
+    }
+    .Album-covers {
+        display: block;
+        margin-left: 40px;
     }
 }

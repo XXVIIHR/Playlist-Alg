@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import './style.css';
 import Product from './Product';
 
-class Products extends Component{
+class Products extends Component {
 
     state = {
         slug: 'Products'
@@ -20,18 +20,18 @@ class Products extends Component{
     getProducts = (categorySlug = '', filter = null) => {
 
         this.props.getProducts(categorySlug, filter)
-        .then(response => {
+            .then(response => {
 
-            console.log(response);
+                console.log(response);
 
-            // this.setState({
-            //     products: response.message
-            // })
-        });
+                // this.setState({
+                //     products: response.message
+                // })
+            });
     }
 
-    componentDidUpdate(prevProps){
-        if(this.props.match.params.slug != prevProps.match.params.slug){
+    componentDidUpdate(prevProps) {
+        if (this.props.match.params.slug != prevProps.match.params.slug) {
             this.getProducts(this.props.match.params.slug);
         }
 
@@ -43,15 +43,15 @@ class Products extends Component{
         this.getProducts(slug, filter);
     }
 
-    categoryTree(categories){
+    categoryTree(categories) {
         var categoriesAr = [];
-        for(var value of categories){
+        for (var value of categories) {
 
             categoriesAr.push(
-                    <li key={value.slug}>
-                        <Link to={`/products/${value.slug}`}>{value.name}</Link>
-                        {value.children.length > 0 ? (<ul>{this.categoryTree(value.children)}</ul>) : null}
-                    </li>
+                <li key={value.slug}>
+                    <Link to={`/products/${value.slug}`}>{value.name}</Link>
+                    {value.children.length > 0 ? (<ul>{this.categoryTree(value.children)}</ul>) : null}
+                </li>
             );
         }
 
@@ -67,50 +67,51 @@ class Products extends Component{
         return (
 
             <div className="Content">
-                    <div className="ContentTitle">
-                        <h2 className="CategoryTitle">Let's Play</h2>
-                    </div>
-                    <div className="ContentBody">
-                        <div className="SideMenu">
-                            <h3 className="SideMenuTitle">Filters</h3>
-                            <div className="Filter">
-                                <p className="FilterTitle">Genres</p>
-                                <select>
-                                    <option>Rock</option>
-                                    <option>Hip-Hop/Rap</option>
-                                    <option>Soul/R&B</option>
-                                    <option>Pop</option>
-                                </select>
-                                <ul>
-                                    {
-                                        this.props.products.categories.length > 0 ?
+                <div className="ContentTitle">
+                    <h2 className="CategoryTitle">Let's Play</h2>
+                </div>
+                <div className="ContentBody">
+                    <div className="SideMenu">
+                        <h3 className="SideMenuTitle">Filters</h3>
+                        <div className="Filter">
+                            <p className="FilterTitle">Genres</p>
+                            <select>
+                                <option>Rock</option>
+                                <option>Hip-Hop/Rap</option>
+                                <option>Soul/R&B</option>
+                                <option>Pop</option>
+                            </select>
+                            <ul>
+                                {
+                                    this.props.products.categories.length > 0 ?
                                         this.categoryTree(this.props.products.categories) : null
-                                    }
-                                </ul>
+                                }
+                            </ul>
+                        </div>
+
+                        <div className="FilterSecond">
+                            <p className="FilterTitle">Streams</p>
+                            <div>
+                                <button onClick={() => this.applyFilter({ price: 1 })} className="FilterButton">Low to High</button>
                             </div>
-
-                           <div className="FilterSecond">
-                               <p className="FilterTitle">Streams</p>
-                               <div>
-                                    <button onClick={() => this.applyFilter({price:1} )} className="FilterButton">Low to High</button>
-                               </div>
-                               <div>
-                                    <button onClick={() => this.applyFilter({price: -1})} className="FilterButton">High to Low</button>
-                               </div>
-
-                           </div>
+                            <div>
+                                <button onClick={() => this.applyFilter({ price: -1 })} className="FilterButton">High to Low</button>
+                            </div>
 
                         </div>
 
-                        <div className="MainContent">
+                    </div>
+
+                    <div className="MainContent">
 
                         <div className="ProductArea">
                             <div className='Album-covers'>
-                            <div>
-                            <img src="https://pyxis.nymag.com/v1/imgs/a68/c60/4555a41f74494b2d3785c0a53f94a7a363-13-drake-too-late.2x.h473.w710.jpg" />
-                            </div>
-                            <div></div>
-                            <div></div>
+                                <div className='Drake'>
+                                    <img className='Albumimg' src="https://upload.wikimedia.org/wikipedia/en/b/bd/The_Weeknd_-_Beauty_Behind_the_Madness.png" />
+                                </div>
+                                <div className='Katy'>
+                                    <img className='Albumimg' src="https://upload.wikimedia.org/wikipedia/en/c/c1/The_Weeknd_-_After_Hours.png"></img>
+                                </div>
                             </div>
                             {
                                 this.props.products.products.map(product => <Product
@@ -126,10 +127,10 @@ class Products extends Component{
                         </div>
 
 
-                        </div>
-
                     </div>
+
                 </div>
+            </div>
 
         );
     }
