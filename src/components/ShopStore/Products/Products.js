@@ -18,7 +18,7 @@ class Products extends Component{
     }
 
     getProducts = (categorySlug = '', filter = null) => {
-       
+
         this.props.getProducts(categorySlug, filter)
         .then(response => {
 
@@ -35,7 +35,7 @@ class Products extends Component{
             this.getProducts(this.props.match.params.slug);
         }
 
-        
+
     }
 
     applyFilter = (filter) => {
@@ -62,43 +62,56 @@ class Products extends Component{
 
         const slug = Object.keys(this.props.match.params).length > 0 ? this.props.match.params.slug : this.state.slug;
 
-        
-        
+
+
         return (
 
             <div className="Content">
                     <div className="ContentTitle">
-                        <h2 className="CategoryTitle">{slug}</h2>
+                        <h2 className="CategoryTitle">Let's Play</h2>
                     </div>
                     <div className="ContentBody">
                         <div className="SideMenu">
                             <h3 className="SideMenuTitle">Filters</h3>
                             <div className="Filter">
-                                <p className="FilterTitle">Categories</p>
+                                <p className="FilterTitle">Genres</p>
+                                <select>
+                                    <option>Rock</option>
+                                    <option>Hip-Hop/Rap</option>
+                                    <option>Soul/R&B</option>
+                                    <option>Pop</option>
+                                </select>
                                 <ul>
                                     {
-                                        this.props.products.categories.length > 0 ? 
+                                        this.props.products.categories.length > 0 ?
                                         this.categoryTree(this.props.products.categories) : null
                                     }
                                 </ul>
                             </div>
-                            
-                           <div className="Filter">
-                               <p className="FilterTitle">Price</p>
+
+                           <div className="FilterSecond">
+                               <p className="FilterTitle">Streams</p>
                                <div>
                                     <button onClick={() => this.applyFilter({price:1} )} className="FilterButton">Low to High</button>
                                </div>
                                <div>
                                     <button onClick={() => this.applyFilter({price: -1})} className="FilterButton">High to Low</button>
                                </div>
-                               
+
                            </div>
-                       
+
                         </div>
-                        
+
                         <div className="MainContent">
 
                         <div className="ProductArea">
+                            <div className='Album-covers'>
+                            <div>
+                            <img src="https://pyxis.nymag.com/v1/imgs/a68/c60/4555a41f74494b2d3785c0a53f94a7a363-13-drake-too-late.2x.h473.w710.jpg" />
+                            </div>
+                            <div></div>
+                            <div></div>
+                            </div>
                             {
                                 this.props.products.products.map(product => <Product
                                     key={product._id}
@@ -109,15 +122,15 @@ class Products extends Component{
                                     slug={product.slug}
                                 />)
                             }
-                            
+
                         </div>
 
-                            
+
                         </div>
 
                     </div>
                 </div>
-            
+
         );
     }
 }

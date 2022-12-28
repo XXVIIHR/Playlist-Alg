@@ -53,46 +53,17 @@ class BottomHeader extends Component{
                 <ul className="Menu">
                     <li className="MenuItem"><Link to="/"><i className="fas fa-home"></i></Link></li>
                     <li className="MenuItem">
-                        <Link to="/products/all" className="MenuItemElement">Shop&nbsp;<i className="fas fa-caret-down"></i></Link>
-                        
+                        <Link to="/products/all" className="MenuItemElement">Albums & Singles&nbsp;<i className="fas fa-caret-down"></i></Link>
+
                         <ul className="Dropdown">
                         {cat}
-                           {/* <li className="Column">
-                              <span className="ColumnTitle">
-                                  <Link to="">Accessories</Link>
-                              </span>
-                              <ul className="ColumnSubMenu">
-                                  <li><Link to="">Handbags</Link></li>
-                                  <li><Link to="">Shoes</Link></li>
-                                  <li><Link to="">Watches</Link></li>
-                              </ul> 
-                           </li>
-                           <li className="Column">
-                                <span className="ColumnTitle">
-                                    <Link to="">Shirts & Tops</Link>
-                                </span>
-                                <ul className="ColumnSubMenu">
-                                    <li><Link to="">Dresses</Link></li>
-                                    <li><Link to="">Polos</Link></li>
-                                    <li><Link to="">Tshirts</Link></li>
-                                    <li><Link to="">Women Dresses</Link></li>
-                                </ul> 
-                            </li>
-                            <li className="Column">
-                                <span className="ColumnTitle">
-                                    <Link to="">Swimsuits</Link>
-                                </span>
-                                <ul className="ColumnSubMenu">
-                                    <li><Link to="">Shorts</Link></li>
-                                </ul> 
-                            </li> */}
                         </ul>
                     </li>
-                    <li className="MenuItem"><Link to="/categories">Categories</Link></li>
-                    <li className="MenuItem"><Link to="/information">Information</Link></li>
+                    <li className="MenuItem"><Link to="/categories">Top Genres</Link></li>
+                    <li className="MenuItem"><Link to="/information">Top Charts</Link></li>
                     <li className="MenuItem"><Link to="/blog">Blog</Link></li>
                 </ul>
-    
+
             </div>
         );
     }
