@@ -7,7 +7,7 @@ import * as authActions from '../../../store/actions/authActions';
 
 const MainHeader = props => {
 
-    
+
 
     return (
         <div className="MainHeader">
@@ -15,7 +15,11 @@ const MainHeader = props => {
             <div>
                 <div className="SearchOption">
                     <select>
-                        <option>All Categories</option>
+                        <option>New</option>
+                        <option>Most Listened</option>
+                        <option>Freshmen</option>
+                        <option>On Fire</option>
+                        <option>All Time Classic</option>
                     </select>
                     <input type="text" />
                     <button>
@@ -25,7 +29,7 @@ const MainHeader = props => {
             </div>
             <div>
                 <Link to="/cart"><i className="fas fa-shopping-cart"></i>({props.cartCount})</Link>
-                
+
             </div>
         </div>
     );

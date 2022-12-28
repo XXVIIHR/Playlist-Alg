@@ -5,6 +5,14 @@
     display: flex;
     justify-content: space-between;
 }
+i {
+    margin-right: 5px;
+}
+
+i:hover{
+cursor: pointer;;
+}
+
 .TopMenu{
     position: relative;
 }

@@ -27,8 +27,8 @@ class TopHeader extends Component{
         return (
             <div className="TopHeader">
                 <div className="SocialMediaIcons">
-                    <i className="fab fa-facebook-f"></i>
-                    <i className="fab fa-google-plus-g"></i>
+                    <i className="fab fa-spotify"></i>
+                    <i className="fab fa-deezer"></i>
                     <i className="fab fa-instagram"></i>
                     <i className="fab fa-youtube"></i>
                 </div>
